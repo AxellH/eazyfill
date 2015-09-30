@@ -12,6 +12,14 @@
 	<packaging>jar</packaging>
 	<name>Textual parser</name>
 	<url>http://maven.apache.org</url>
+	
 	<dependencies>
+		<!-- ***** PDF ***** -->
+		<dependency>
+			<groupId>org.apache.pdfbox</groupId>
+			<artifactId>pdfbox</artifactId>
+			<version>${pdfbox.version}</version>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
 </project>
