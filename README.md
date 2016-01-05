@@ -1,12 +1,5 @@
 # eazyfill
 Extracts payment data from invoices
 
-## Version 0.1 roadmap
-
-* Create module for parsing textual data from PDF files;
-
-* Decide between different PDF libraries;
-
-* Implement parsing code;
-
-* ...
+* Project *parser-textual* is an example of extracting sum total from an invoice;
+* Project *positional-order* can be used in selecting the most likely value from several candidates for a payment field;

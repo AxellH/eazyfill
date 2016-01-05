@@ -21,6 +21,7 @@
 
 	<modules>
 		<module>parser-textual</module>
+		<module>positional-order</module>
   	</modules>
 
 	<dependencies>
