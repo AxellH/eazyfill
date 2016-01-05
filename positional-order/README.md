@@ -24,7 +24,7 @@ Reference number locations on Estonian invoices yielded most of the data points 
 
 ## Comparing
 
-Comparing two candidates is implemented on the area size of the bigger cell (see example below).
+Comparing two candidates is implemented on the area size of the bigger cell. See example for comparing reference number candidates below.
 
 In the beginning there are probably only a small number of data points.  Cell areas should be kept bigger to have more values in cells.
 
