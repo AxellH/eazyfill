@@ -6,7 +6,7 @@ This project *positional-order* can be used in selecting the most likely value f
 
 ## Solution
 
-We provide a data structure built on top of implicit k-d tree, i.e. k-d tree on top of a predefined rectilinear grid. Grid constants are defined in *ee.pdfarve.common.geom.Dimensions*.
+We provide a data structure built on top of implicit k-d tree (implicit k-d tree - k-d tree on top of a predefined rectilinear grid). Grid constants are defined in *ee.pdfarve.common.geom.Dimensions*.
 
 Each tree leaf node stores the data point locations in its associated cell, and each inner node stores the number of data points in its children. Iterative updating propagates a new data point top-down and can split a cell.
 
@@ -14,14 +14,18 @@ Each tree leaf node stores the data point locations in its associated cell, and 
 
 First task is to find the most likely location for each payment field on invoice. Sample invoices need to be collected and data points extracted. 
 
-After that, k-d tree (one for each field type) needs to be initialised with training data that determines the most likely positions for a payment field. Then this tree structure can be used with geometrical positioning data in ordering candidate values for a payment field.  
+After that, k-d tree (one tree for each different field type) needs to be initialised with training data that determines the most likely positions for a payment field. Then this tree structure can be used with geometrical positioning data in ordering candidate values for a payment field.  
 
 ## Example
 
 Reference number locations on Estonian invoices yielded most of the data points cluttered in the upper right cell, which is therefore the most likely place to find the value for reference number.
 
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Reference nr example") 
+
 ## Comparing
 
 Comparing two candidates is implemented on the area size of the bigger cell (see example below).
 
-In the beginning there are probably only a small number of data points.  Cell areas should be kept bigger to have more values in cells. 
+In the beginning there are probably only a small number of data points.  Cell areas should be kept bigger to have more values in cells.
+
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Reference nr example") 
