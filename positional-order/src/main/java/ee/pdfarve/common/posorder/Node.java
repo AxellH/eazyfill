@@ -1,10 +1,12 @@
-package ee.pdfarve.common.geom;
+package ee.pdfarve.common.posorder;
 
-import static ee.pdfarve.common.geom.CutDirectionType.HORIZONTAL;
-import static ee.pdfarve.common.geom.CutDirectionType.VERTICAL;
+import static ee.pdfarve.common.posorder.CutDirectionType.HORIZONTAL;
+import static ee.pdfarve.common.posorder.CutDirectionType.VERTICAL;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.commons.lang.NullArgumentException;
 
 public class Node {
 
@@ -74,16 +76,17 @@ public class Node {
 
 	public void addLocations(final List<LocationPointWithText> locations) {
 		this.locations.addAll(locations);
+		split();
 	}
 
 	public void split() {
-		if (getLocations().size() <= Dimensions.MIN_NUMBER_OF_DATA_POINTS_IN_CELL) {
+		if (getLocations().size() <= GridConstants.MIN_NUMBER_OF_DATA_POINTS_IN_CELL) {
 			return;
 		}
-		if ((getMaxX() - getMinX()) < 2 * Dimensions.MIN_CELL_LENGTH) {
+		if ((getMaxX() - getMinX()) < 2 * GridConstants.MIN_CELL_LENGTH_PX) {
 			return;
 		}
-		if ((getMaxY() - getMinY()) < 2 * Dimensions.MIN_CELL_LENGTH) {
+		if ((getMaxY() - getMinY()) < 2 * GridConstants.MIN_CELL_LENGTH_PX) {
 			return;
 		}
 		int cutline;
@@ -141,6 +144,90 @@ public class Node {
 			sb.append(biggerValues.getStringRepresentation(prefixWhitespace + "\t"));
 		}
 		return sb.toString();
+	}
+
+	public int getMaxDepthForLocation(final LocationPointWithText location) {
+		checkLocationArgument(location);
+		switch (cutDirection) {
+		case HORIZONTAL:
+			if (location.getY() < (getMinY() + getMaxY()) / 2) {
+				if (getSmallerValues() != null) {
+					return getSmallerValues().getMaxDepthForLocation(location) + 1;
+				} else {
+					return 0;
+				}
+			} else {
+				if (getBiggerValues() != null) {
+					return getBiggerValues().getMaxDepthForLocation(location) + 1;
+				} else {
+					return 0;
+				}
+			}
+		case VERTICAL:
+			if (location.getX() < (getMinX() + getMaxX()) / 2) {
+				if (getSmallerValues() != null) {
+					return getSmallerValues().getMaxDepthForLocation(location) + 1;
+				} else {
+					return 0;
+				}
+			} else {
+				if (getBiggerValues() != null) {
+					return getBiggerValues().getMaxDepthForLocation(location) + 1;
+				} else {
+					return 0;
+				}
+			}
+		default:
+			throw new IllegalStateException("Unknown cut direction: " + cutDirection);
+		}
+	}
+
+	public int getDataPointsAtLevelForLocation(final LocationPointWithText location, final int depth) {
+		checkLocationArgument(location);
+		if (depth < 0) {
+			throw new IllegalArgumentException("Depth must be non-negative");
+		}
+		switch (cutDirection) {
+		case HORIZONTAL:
+			if (location.getY() < (getMinY() + getMaxY()) / 2) {
+				if (getSmallerValues() != null) {
+					return getSmallerValues().getDataPointsAtLevelForLocation(location, depth);
+				} else {
+					return getNumberOfLocations();
+				}
+			} else {
+				if (getBiggerValues() != null) {
+					return getBiggerValues().getDataPointsAtLevelForLocation(location, depth);
+				} else {
+					return getNumberOfLocations();
+				}
+			}
+		case VERTICAL:
+			if (location.getX() < (getMinX() + getMaxX()) / 2) {
+				if (getSmallerValues() != null) {
+					return getSmallerValues().getDataPointsAtLevelForLocation(location, depth);
+				} else {
+					return getNumberOfLocations();
+				}
+			} else {
+				if (getBiggerValues() != null) {
+					return getBiggerValues().getDataPointsAtLevelForLocation(location, depth);
+				} else {
+					return getNumberOfLocations();
+				}
+			}
+		default:
+			throw new IllegalStateException("Unknown cut direction: " + cutDirection);
+		}
+	}
+	
+	private void checkLocationArgument(final LocationPointWithText location) {
+		if (location == null) {
+			throw new NullPointerException("Parameter location is null");
+		}
+		if (location.getX() > getMaxX() || location.getY() > getMaxY()) {
+			throw new IllegalArgumentException("Location must be contained inside grid: " + location);
+		}
 	}
 
 }

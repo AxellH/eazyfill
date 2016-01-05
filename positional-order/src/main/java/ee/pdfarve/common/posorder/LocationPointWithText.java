@@ -1,4 +1,4 @@
-package ee.pdfarve.common.geom;
+package ee.pdfarve.common.posorder;
 
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 

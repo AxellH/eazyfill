@@ -14,7 +14,7 @@ Each tree leaf node stores the data point locations in its associated cell, and 
 
 First task is to find the most likely location for each payment field on invoice. Sample invoices need to be collected and data points extracted. 
 
-After that, k-d tree (one tree for each different field type) needs to be initialised with training data that determines the most likely positions for a payment field. Then this tree structure can be used with geometrical positioning data in ordering candidate values for a payment field.  
+After that, k-d tree (one tree for each different field type) needs to be initialised with training data that determines the most likely positions for a payment field. Then this tree structure can be used with geometrical positioning data in ordering candidate values for a payment field. See tests inside *ee.pdfarve.common.posorder.NodeTest.java* for how the data structure can be trained.  
 
 ## Example
 
@@ -24,7 +24,7 @@ Reference number locations on Estonian invoices yielded most of the data points 
 
 ## Comparing
 
-Comparing two candidates is implemented on the area size of the bigger cell. See example for comparing reference number candidates below.
+Comparing two candidates is implemented on the area size of the bigger cell. The comparator itself is implemented in *ee.pdfarve.common.posorder.CandidatesComparator*. See an example illustrating comparing reference number candidates below.
 
 In the beginning there are probably only a small number of data points.  Cell areas should be kept bigger to have more values in cells.
 
