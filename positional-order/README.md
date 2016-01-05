@@ -28,4 +28,4 @@ Comparing two candidates is implemented on the area size of the bigger cell (see
 
 In the beginning there are probably only a small number of data points.  Cell areas should be kept bigger to have more values in cells.
 
-![alt text](https://github.com/kveskimae/eazyfill/blob/master/positional-order/comparing.png "Comparing example") 
+![alt text](https://github.com/kveskimae/eazyfill/blob/master/positional-order/comparing.png =200x "Comparing example") 
