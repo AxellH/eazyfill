@@ -20,7 +20,7 @@ After that, k-d tree (one tree for each different field type) needs to be initia
 
 Reference number locations on Estonian invoices yielded most of the data points cluttered in the upper right cell, which is therefore the most likely place to find the value for reference number.
 
-<a href="https://github.com/kveskimae/eazyfill/blob/master/positional-order/reference_nr.png"><img src="https://github.com/kveskimae/eazyfill/blob/master/positional-order/reference_nr.png" align="center" height="48" width="48" alt="Reference nr example"></a>
+![comparing](https://github.com/kveskimae/eazyfill/blob/master/positional-order/reference_nr.png)
 
 ## Comparing
 
