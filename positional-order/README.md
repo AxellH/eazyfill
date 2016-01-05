@@ -20,7 +20,7 @@ After that, k-d tree (one tree for each different field type) needs to be initia
 
 Reference number locations on Estonian invoices yielded most of the data points cluttered in the upper right cell, which is therefore the most likely place to find the value for reference number.
 
-<img src="https://github.com/kveskimae/eazyfill/blob/master/positional-order/reference_nr.png" alt="Reference nr example" style="width: 300px;"/>
+<a href="https://github.com/kveskimae/eazyfill/blob/master/positional-order/reference_nr.png"><img src="https://github.com/kveskimae/eazyfill/blob/master/positional-order/reference_nr.png" align="center" height="48" width="48" alt="Reference nr example"></a>
 
 ## Comparing
 
@@ -28,4 +28,4 @@ Comparing two candidates is implemented on the area size of the bigger cell (see
 
 In the beginning there are probably only a small number of data points.  Cell areas should be kept bigger to have more values in cells.
 
-![alt text](https://github.com/kveskimae/eazyfill/blob/master/positional-order/comparing.png =200x) 
+![comparing](https://github.com/kveskimae/eazyfill/blob/master/positional-order/comparing.png) 
