@@ -12,7 +12,7 @@ EazyFill extracts payment data from invoices. Startup home page is at [eazyfill.
 
 While EazyFill is a commercial project, here are two examples under MIT licencse for getting started with extracting data from PDF files.
 
-* Project *parser-textual* is a small example of extracting sum total from an invoice; this is a Maven parent project with additional dependencies on open-source frameworks.;
+* Project *parser-textual* is a small example of extracting sum total from an invoice; it is a Maven project with external dependencies on open-source frameworks;
 * Project *positional-order* can be used to train your algorithm in using position to select the most likely value from several candidates for a field;
 
 Link to [project poster](student_project_poster_kristjan_veskimäe.pdf)
