@@ -17,6 +17,10 @@ While EazyFill is a commercial project, here are two examples under MIT licencse
 
 Link to [project poster](https://drive.google.com/file/d/0B2fc1fcucsZKWjZMS1JINVktbUE/view?usp=sharing) (or alternatively poster.pdf in this repo)
 
+![I3P](logo_i3p.png)
+
 ![Institute of Computer Science, University of Tartu](logo_institute.png)
 
 ![IT Akadeemia](logo_it_academy.jpg)
+
+![Treatabit](logo_treatabit.png)
